@@ -1,0 +1,98 @@
+# Changelog
+
+## Repository navigation — 2026-10-01
+
+- Rebuilt the GitHub landing README around purpose, Windows quick start, workflow, directory map and current boundaries.
+- Added bilingual documentation navigation, a layered architecture/data-flow guide, current progress and focused directory READMEs.
+- Archived earlier Chinese/Claude handoffs with explicit historical labels; preserved the detailed engineering reference.
+- Kept frontend/backend/database/model/launcher paths unchanged and added navigation regression tests.
+- Clarified that GitHub downloads do not transfer local patient data, scores, model settings or credentials.
+- Documented a Node.js runtime with built-in `node:sqlite` support rather than relying on the older wizard's Node 20 check.
+
+## Official generation repair — 2026-10-01
+
+- Replaced the mismatched Official Run INSERT placeholders with named SQL bindings.
+- Added visible generation-start/provider errors and integration coverage for failure, retry and replacement archival.
+- Reject incomplete output with `finish_reason: "length"`; preserve prior configurations when changing model budgets.
+
+## Doctor Portal redesign — 2026-09-30
+
+- Retained NTU branding in an Epic-inspired patient worklist, clinical navigator, chart workspace and review sidecar.
+- Preserved existing evidence, scoring and Admin workflows; retained Doctor sign-out in compact navigation.
+
+## Unreleased — 2026-09-15
+
+- Moved all dataset upload and ingestion authority to Admin; Doctors now see only approved shared cohorts.
+- Added a versioned Model Registry for DeepSeek, Qwen, OpenAI, GLM and other OpenAI-compatible Chat Completions endpoints.
+- Added locally encrypted API credentials, masked API responses, connection testing, capability tags and Admin-confirmed dataset routing.
+- Added model-blinded Doctor views and distinct evaluation batches per case, task, model version and output.
+- Replaced the chronic-disease/10-visit eligibility gate with adaptive single-visit, short-longitudinal, standard-longitudinal and undated-snapshot tasks.
+- Expanded hospital field mapping to medications, procedures, allergies, generic observations and restricted clinical notes while preserving lineage and conservative missing-data rules.
+- Updated the Windows one-click launcher to validate the model registry rather than hard-code a DeepSeek network preflight.
+
+## v1.6.0 - First-time setup wizard
+
+- Added bilingual `First-Time-Setup.cmd` and `首次安装向导.cmd` entry points.
+- Added Node.js/npm checks, automatic dependency installation, hidden local DeepSeek-key configuration, production build, automated tests and setup-status reporting.
+- Updated normal launchers to open the setup wizard automatically when dependencies or `.env.local` are missing.
+- Documented the complete new-computer setup flow in both README and the Chinese engineering guide.
+
+## Unreleased — 2026-08-19
+
+- Added cryptographic runtime instance IDs and server-owned PID/port/project identity records.
+- Hardened one-click launch so it never reuses an unknown healthy port or stale PID; occupied ports now fall through safely to 4191–4199.
+- Hardened stop behavior to terminate only a verified instance belonging to this project.
+- Added a DeepSeek HTTPS preflight warning and actionable network failure messages.
+- Added persisted asynchronous model stages, cancellation, retry, restart interruption recovery and Visit 1–9 evidence validation.
+- Added the selected Evidence Lens workspace interactions and restrained login particle field.
+- Fixed evidence-result deserialization so canonical and legacy run records retain their interactive citations instead of being mislabelled as unverified.
+- Added bounded exponential retry for transient model-network failures and made health status reflect the latest real model request.
+- Expanded the automated suite from seven to eleven tests.
+
+## v1.0.0-mvp2 — 2026-08-18
+
+- Rebuilt the prototype around a real local SQLite database with hashed accounts, sessions, RBAC, audit events and original-source retention.
+- Added unified Doctor/Admin authentication, Doctor self-registration and Admin account deactivation.
+- Added private Doctor uploads, Admin dataset approval/sharing and explicit quarantine reports.
+- Integrated the supplied Synthea-SG ZIP: 369 valid patients, 33 truncated JSON files and 98 missing files.
+- Added replaceable model-provider architecture and validated a real DeepSeek `deepseek-v4-pro` visit-10 plan from visits 1–9.
+- Added Doctor-private per-dimension scores, free text, preset tags, custom tags, drafts and editable submissions.
+- Added Admin-wide evaluation inspection, mean/median/weighted aggregation, doctor/dimension weights and immutable finalization locking.
+- Added longitudinal timeline, trends and raw JSON evidence trace.
+- Added a reliable production-style local server, Windows one-click launcher, data profiler and seven automated tests.
+
+All notable local baseline versions of the AI Medical Agent Evaluation Platform are recorded here.
+
+## v0.3.0-handbook-launcher — 2026-08-13
+
+- Added a Windows one-click launcher that checks platform health, starts Vite in the background and opens the evaluation Workspace.
+- Added a matching stop command and ignored local runtime PID/log state.
+- Added a parent-directory launcher and created a local Windows desktop shortcut for direct access on this workstation.
+- Added a 14-page Chinese showcase handbook covering the P0 workflow, architecture, safety boundaries and evidence.
+- Added a 17-page English showcase handbook responding to four supervisor design questions.
+- Documented future work for longitudinal-data visualisation, patient-specific clinician queries and claim-level evidence traceability.
+- Added reproducible ReportLab build scripts for both handbook editions.
+- Kept DeepSeek credentials, local clinical-review data and runtime state outside Git.
+
+## v0.2.0-deepseek — 2026-08-12
+
+- Added a server-side DeepSeek adapter using the official OpenAI-compatible Chat Completions API.
+- Configured `deepseek-v4-pro` with non-thinking output for clinician review.
+- Added a versioned chronic-care prompt with Assessment, Plan, Monitoring, Safety and Uncertainty sections.
+- Captured provider, model version, prompt version, response ID and token usage.
+- Added request timeout and explicit provider error handling.
+- Updated local and hosted model-provider configuration.
+- Ensured the Workspace requests a DeepSeek run rather than silently reusing a Mock result.
+- Hardened local JSON persistence against Windows UTF-8 BOM files.
+- Successfully validated the complete route with a simulated chronic-care case.
+- Kept `.env.local`, API credentials, local assessments and feedback outside Git.
+
+## v0.1.0-p0 — 2026-08-12
+
+- Built the English clinician evaluation interface and deep navy NTU-inspired navigation.
+- Added Data Intake for JSON/CSV cases, validation, mapping and import history.
+- Added persistent API routes and D1/SQLite-compatible schema and migration.
+- Added the Mock Medical Model Adapter.
+- Added six rubric scores, safety checks, reason tags and required Case Feedback.
+- Added separate Platform Feedback persistence and administrator Feedback Inbox.
+- Added database-confirmed submission, assessment history, tests and design QA assets.
